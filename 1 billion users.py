@@ -15,7 +15,13 @@ import math
 
 
 def getBillionUsersDay(growthRates):
-
+    currentUsers = 0
+    days = 0
+    while currentUsers <= 1000000000:
+        days += 1
+        for growthRate in growthRates:
+            currentUsers = pow(growthRate, days)
+    return days
 
 # Write your code here
 
@@ -58,5 +64,10 @@ if __name__ == "__main__":
     expected_2 = 1047
     output_2 = getBillionUsersDay(test_2)
     check(expected_2, output_2)
+
+    test_3 = [1.33, 0.97, 1.45, 0.2, 1.05, 0.1, .56, 1.13, 1.6]
+    expected_3 = 1
+    output_3 = getBillionUsersDay(test_3)
+    check(expected_3, output_3)
 
     # Add your own test cases here
