@@ -19,8 +19,9 @@ def getBillionUsersDay(growthRates):
     days = 0
     while currentUsers <= 1000000000:
         days += 1
+        currentUsers = 0
         for growthRate in growthRates:
-            currentUsers = pow(growthRate, days)
+            currentUsers += pow(growthRate, days)
     return days
 
 # Write your code here
